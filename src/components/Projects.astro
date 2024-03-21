@@ -1,0 +1,135 @@
+---
+import Tailwind from "./icons/Tailwind.astro";
+import GitHub from "./icons/GitHub.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import Astro from "./icons/Astro.astro";
+import React from "./icons/React.astro";
+import Link from "./icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+import Html from "./icons/Html.astro";
+import Css from "./icons/Css.astro";
+import Router from "./icons/React-router.astro";
+
+const TAGS = {
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+
+  JAVASCRIPT: {
+    name: "Javacript",
+    class: "bg-[#F7DF1E]/30 text-white",
+    icon: JavaScript,
+  },
+
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#003159] text-white",
+    icon: Astro,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#61dbfb]/40 text-white",
+    icon: React,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-[#E34F26]/30 text-white",
+    icon: Html,
+  },
+  CSS: {
+    name: "Css",
+    class: "bg-[#1572B6]/50 text-white",
+    icon: Css,
+  },
+  ROUTER: {
+    name: "React-router",
+    class: "bg-[#D32F2F]/30 text-white",
+    icon: Router,
+  }
+
+};
+const PROJECTS = [
+  {
+    title: "Show Case - Mini Projects",
+    description:
+      "Este proyecto comprende dos partes: ReactDev Tic-Tac-Toe, una mejora del tutorial oficial de React con funcionalidades adicionales como estilos CSS personalizados, persistencia de datos y mejoras en la interfaz; y Poke Collection, una aplicación que permite a los usuarios buscar y gestionar sus Pokemones favoritos, integrando la API PokeAPI y una API propia.",
+    link: "https://show-case-miniprojects.netlify.app",
+    github: "https://github.com/Kell9831/Show-case",
+    image: "/projects/project1.webp",
+    tags: [TAGS.REACT, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Google Keep Fake",
+    description:
+      " Una aplicación web que simula a Google notas utilizando React Router para una navegación eficiente. La aplicación permite la creación de notas personalizadas con paletas de colores, anclaje de notas esenciales, una sección de notas archivadas, y la capacidad de enviar notas a la papelera con opciones de recuperación o eliminación definitiva.",
+    link: "https://google-keep-fake.netlify.app/trash",
+    github: "https://github.com/Kell9831/Google-Keep-Fake-router-",
+    image: "/projects/project2.webp",
+    tags: [TAGS.REACT, TAGS.ROUTER, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Codificable Web",
+    description:
+      " Página web interactiva que presenta los servicios de una empresa de cursos de programación, utilizando HTML, CSS y JavaScript para una experiencia completa. Diseñe una interfaz atractiva y funcional con páginas específicas, como el inicio de sesión, creación de cuenta, sección de patrocinadores, testimonios, suscripción premium y un blog con artículos educativos.",
+    link: "https://codificable-web.netlify.app/",
+    github: "https://github.com/Kell9831/Codificable-Web",
+    image: "/projects/project3.webp",
+    tags: [TAGS.HTML,TAGS.CSS, TAGS.JAVASCRIPT],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt=""
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold dark:text-gray-100 ">{title}</h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 dark:text-gray-400">{description}</div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
