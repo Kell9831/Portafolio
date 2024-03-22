@@ -16,7 +16,6 @@ Apasionada del desarrollo web,convencida de que la tecnología es la clave para 
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
-        └── components.astro
 │       └── index.astro
 └── package.json
 ```
