@@ -4,8 +4,10 @@ import AboutMe from "../components/AboutMe.astro"
 import CodeIcon from "../components/icons/Code.astro"
 import SectionContainer from "../components/SectionContainer.astro"
 import ProfileCheck from "../components/icons/ProfileCheck.astro"
+import SkillsIcon from "../components/icons/SkillsIcon.astro"
 import Projects from "../components/Projects.astro"
 import Hero from "../components/Hero.astro"
+import Skills from "../components/Skills.astro"
 import LinkInline from "../components/LinkInline.astro"
 ---
 
@@ -46,12 +48,22 @@ import LinkInline from "../components/LinkInline.astro"
       </svg>
     </LinkInline>
   </SectionContainer>
+
+  <SectionContainer id="habilidades">
+    <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+    <SkillsIcon class="size-7"/>
+    Habilidades
+  </h2>
+    <Skills/>
+  </SectionContainer>
+
+
     <SectionContainer id="sobre-mi">
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 dark:text-white"
       >
         <ProfileCheck class="size-8" />
-        Sobre mí
+        Un poco más sobre mi
       </h2>
       <AboutMe />
     </SectionContainer>
